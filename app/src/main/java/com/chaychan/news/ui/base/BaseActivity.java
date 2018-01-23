@@ -29,13 +29,13 @@ import butterknife.ButterKnife;
  * @date 2017/6/10  16:42
  */
 
-public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
 
     protected T mPresenter;
     private static long mPreTime;
     private static Activity mCurrentActivity;// 对所有activity进行管理
     public static List<Activity> mActivities = new LinkedList<Activity>();
-    protected  Bundle savedInstanceState;
+    protected Bundle savedInstanceState;
     protected StateView mStateView;
     public PermissionListener mPermissionListener;
 
@@ -43,7 +43,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
     public final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (enableSlideClose()) {
+        if (enableSlideClose()) {//侧滑关闭
             SlidingLayout rootView = new SlidingLayout(this);
             rootView.bindActivity(this);
         }
@@ -134,7 +134,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
      */
     @Override
     public void onBackPressed() {
-        if (mCurrentActivity instanceof MainActivity){
+        if (mCurrentActivity instanceof MainActivity) {
             //如果是主页面
             if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
 //                UIUtils.showToast("再按一次，退出应用");

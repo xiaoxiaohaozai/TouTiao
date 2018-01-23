@@ -220,6 +220,9 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
         helper.setText(R.id.tv_title, news.title);//设置标题
 
         String format = UIUtils.getString(R.string.video_play_count);
+      if (news.video_detail_info==null){
+          return;
+      }
         int watchCount = news.video_detail_info.video_watch_count;
         String countUnit = "";
         if (watchCount> 10000){

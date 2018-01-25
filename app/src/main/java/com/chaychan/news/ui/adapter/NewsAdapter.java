@@ -109,7 +109,6 @@ public class NewsAdapter extends BaseQuickAdapter<News, BaseViewHolder> {
                             //图片数为3，则为三图
                             return THREE_PICS_NEWS;
                         }
-
                         //中间大图，右下角显示图数
                         return CENTER_SINGLE_PIC_NEWS;
                     }

@@ -108,10 +108,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setStatusBarColor(int position) {
-        if (position == 3){
+        if (position == 3) {
             //如果是我的页面，状态栏设置为透明状态栏
-            Eyes.translucentStatusBar(MainActivity.this,true);
-        }else{
+            Eyes.translucentStatusBar(MainActivity.this, true);
+        } else {
             Eyes.setStatusBarColor(MainActivity.this, com.chaychan.news.utils.UIUtils.getColor(mStatusColors[position]));
         }
     }
@@ -138,9 +138,7 @@ public class MainActivity extends BaseActivity {
     public void onRefreshCompletedEvent(TabRefreshCompletedEvent event) {
         //接收到刷新完成的事件，取消旋转动画，更换底部首页页签图标
         BottomBarItem bottomItem = mBottomBarLayout.getBottomItem(0);
-
         cancelTabLoading(bottomItem);//停止旋转动画
-
         bottomItem.setIconSelectedResourceId(R.mipmap.tab_home_selected);//更换成首页原来图标
         bottomItem.setStatus(true);//刷新图标
     }

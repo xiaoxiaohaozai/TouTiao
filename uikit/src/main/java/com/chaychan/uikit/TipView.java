@@ -57,7 +57,6 @@ public class TipView extends LinearLayout {
         mText = ta.getString(R.styleable.TipView_tipText);
         mTextSize = ta.getDimensionPixelSize(R.styleable.TipView_tipTextSize, UIUtils.sp2px(context, 12));
         ta.recycle();
-
         init();
     }
 

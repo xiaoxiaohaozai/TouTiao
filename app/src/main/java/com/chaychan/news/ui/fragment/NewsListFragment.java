@@ -127,8 +127,6 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
         refreshViewHolder.setPullDownRefreshText(UIUtils.getString(R.string.refresh_pull_down_text));//下拉的提示文字
         refreshViewHolder.setReleaseRefreshText(UIUtils.getString(R.string.refresh_release_text));//松开的提示文字
         refreshViewHolder.setRefreshingText(UIUtils.getString(R.string.refresh_ing_text));//刷新中的提示文字
-
-
         // 设置下拉刷新和上拉加载更多的风格
         mRefreshLayout.setRefreshViewHolder(refreshViewHolder);
         mRefreshLayout.shouldHandleRecyclerViewLoadingMore(mRvNews);
@@ -138,7 +136,6 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
     public void initData() {
         mChannelCode = getArguments().getString(Constant.CHANNEL_CODE);
         isVideoList = getArguments().getBoolean(Constant.IS_VIDEO_LIST, false);
-
         String[] channelCodes = UIUtils.getStringArr(R.array.channel_code);
         isRecommendChannel = mChannelCode.equals(channelCodes[0]);//是否是推荐频道
     }
@@ -242,7 +239,7 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
         mStateView.showContent();//显示内容
 
         //判断时间是否超过10分钟，如果是则自动刷新
-        if (mNewsRecord.getTime() - System.currentTimeMillis() == 10 * 60 * 100) {
+        if (mNewsRecord.getTime() - System.currentTimeMillis() == 10 * 60 * 1000) {
             mRefreshLayout.beginRefreshing();
         }
     }
@@ -448,7 +445,7 @@ public class NewsListFragment extends BaseFragment<NewsListPresenter> implements
         News news = mNewsList.get(position);
         news.comment_count = commentCount;
 
-        if (news.video_detail_info != null){
+        if (news.video_detail_info != null) {
             //如果有视频
             int progress = event.getProgress();
             news.video_detail_info.progress = progress;

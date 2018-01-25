@@ -16,7 +16,7 @@
         app:tipText="@string/net_unavailable"
         app:tipTextColor="@color/color_4592C6"
         app:tipTextSize="14sp"
-        ></com.chaychan.uikit.TipView>
+        />
 
     <com.chaychan.uikit.refreshlayout.BGARefreshLayout
         android:id="@+id/refresh_layout"
@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-
+        <!--statusview的根布局-->
         <FrameLayout
             android:id="@+id/fl_content"
             android:layout_width="match_parent"
